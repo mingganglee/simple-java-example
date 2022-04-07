@@ -7,7 +7,7 @@
  * in the user manual at https://docs.gradle.org/7.2/userguide/multi_project_builds.html
  */
 
-rootProject.name = 'gradle_test'
+rootProject.name = 'gradle_spring_multi_model'
 include('library')
 include('application')
 include('user')

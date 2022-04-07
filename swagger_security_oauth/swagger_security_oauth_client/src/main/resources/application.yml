@@ -1,0 +1,32 @@
+# 设置 授权服务器地址
+oauth2-server-url: http://localhost:8080
+
+server:
+  port: 8081
+
+  # 设置 cookie.name 防止 cookie 冲突, 冲突会导致登录验证不通过
+  servlet:
+    session:
+      cookie:
+        name: user
+
+security:
+  oauth2:
+    client:
+      clientId: client
+      clientSecret: client
+      userAuthorizationUri: ${oauth2-server-url}/oauth/authorize
+      accessTokenUri: ${oauth2-server-url}/oauth/token
+    resource:
+      userInfoUri: ${oauth2-server-url}/oauth/me
+
+springdoc:
+  version: v1
+  api-docs:
+    path: /user_server
+  swagger-ui:
+    oauth:
+      clientId: client
+      clientSecret: client
+  oAuthFlow:
+    tokenUrl: ${oauth2-server-url}/oauth/token

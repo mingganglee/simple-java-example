@@ -1,0 +1,15 @@
+oauth2-server-url: http://127.0.0.1:8080
+
+server:
+  port: 8080
+
+springdoc:
+  version: v1
+  api-docs:
+    path: /user_server
+  swagger-ui:
+    oauth:
+      clientId: client
+      clientSecret: client
+  oAuthFlow:
+    tokenUrl: ${oauth2-server-url}/oauth/token
