@@ -18,5 +18,10 @@ gradle :user:bootRun
 
 ## Test
 
-* Go to `http://localhost:8080/hello`
-* Go to `http://localhost:8081/user/hello`
+```bash
+curl -X GET http://localhost:8080/hello
+
+curl -X GET http://localhost:8081/user/hello
+
+curl -X GET http://localhost:8081/user/
+```
