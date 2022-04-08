@@ -1,0 +1,22 @@
+server:
+  port: 9000
+
+spring:
+    application:
+      name: gateway-service
+    cloud:
+      gateway:
+        routes:
+        - id: provider
+          uri: lb://provider-server
+          predicates:
+            - Path=/provider/**
+        - id: consumer
+          uri: lb://consumer-server
+          predicates:
+            - Path=/consumer/**
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/
