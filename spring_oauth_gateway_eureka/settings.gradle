@@ -1,0 +1,3 @@
+rootProject.name = 'spring_oauth_gateway_eureka'
+
+include 'auth-server', 'eureka-server', 'gateway-server', 'hello-server', 'user-server'

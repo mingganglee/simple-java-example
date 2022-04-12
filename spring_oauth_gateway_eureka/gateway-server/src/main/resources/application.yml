@@ -1,0 +1,38 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+      - id: oauth
+        uri: lb://auth-server
+        predicates:
+          - Path=/oauth/**
+      - id: user
+        uri: lb://user-server
+        predicates:
+          - Path=/user/**
+      - id: hello
+        uri: lb://hello-server
+        predicates:
+          - Path=/hello/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 配置RSA的公钥访问地址
+          jwkSetUri: http://localhost:8000/rsa/publicKey
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/
+
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/oauth/token"
+      - "/favicon.ico"

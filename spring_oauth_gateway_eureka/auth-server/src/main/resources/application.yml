@@ -1,0 +1,27 @@
+oauth2-server-url: http://127.0.0.1:${server.port}
+
+server:
+  port: 8000
+
+spring:
+  main:
+    allow-circular-references: true
+  
+  application:
+    name: auth-server
+
+springdoc:
+  version: v1
+  api-docs:
+    path: /auth_server
+  swagger-ui:
+    oauth:
+      clientId: client
+      clientSecret: client
+  oAuthFlow:
+    tokenUrl: ${oauth2-server-url}/oauth/token
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/
