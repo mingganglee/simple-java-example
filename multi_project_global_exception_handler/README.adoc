@@ -1,0 +1,30 @@
+= Use @Valid to throw exceptions and implement global exception capture
+
+== How to use
+
+[source,bash]
+.run api project
+gradle :api:bootRun
+
+== How to Test
+
+[source,bash]
+.run curl command
+curl -X 'POST' \
+ 'http://localhost:8080/register' \
+ -H 'Content-Type: application/json' \
+ -H 'Accept: */*' \
+ -d '{"username":"1", "password":"1"}'
+
+[source,json]
+.output
+{"code":404,"message":"username: 用户名太短","data":null}
+
+== Project changes
+
+[IMPORTANT]
+====
+.Important changes
+* The common project is referenced in the `api/build.gradle` file
+* `ApiApplication.java` file `@SpringBootApplication(scanBasePackages = "icu.api, icu.common")` content modification
+====
