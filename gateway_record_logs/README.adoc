@@ -1,0 +1,32 @@
+= Gateway Record Logs
+
+IMPORTANT: Log files are stored in `gateway/logs/app.log` by default
+
+== How to run
+
+`gradle :gateway:bootRun`
+
+`gradle :api:bootRun`
+
+== How to test
+
+.GET request
+`curl -X 'GET' 'http://localhost:9000/api/hello'`
+
+.POST request
+`curl -X 'POST' 'http://localhost:9000/api/hello?name=tony'`
+
+.PUT request
+`curl -X 'PUT' 'http://localhost:9000/api/hello?name=tony'`
+
+.DELETE request
+`curl -X 'DELETE' 'http://localhost:9000/api/hello?name=tony'`
+
+== Note
+
+[NOTE]
+====
+* 每次请求根据 `request id` 创建一个 `WebLog` 对象
+* gateway 中实现 `ModifyRequestBodyGatewayFilterFactory` 和 `ModifyResponseBodyGatewayFilterFactory` 过滤器
+* 在 response filter 中将 `WebLog` 记录到 log 文件中, 并删除内存中的 `exchange` 对象
+====

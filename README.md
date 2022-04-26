@@ -7,3 +7,4 @@
 | eureka_gateway_example                 | using spring cloud eureka gateway openfeign                           |
 | spring_oauth_gateway_eureka            | using oauth resource gateway eureka openfeign                         |
 | multi_project_global_exception_handler | Use @Valid to throw exceptions and implement global exception capture |
+| gateway_record_logs                    | gateway records request logs                                          |
