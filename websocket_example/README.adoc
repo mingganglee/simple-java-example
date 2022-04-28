@@ -1,0 +1,19 @@
+= Spring WebSocket Example
+
+* https://www.piesocket.com/websocket-tester[*websocket online test*]
+
+== How to run
+
+`gradle bootRun`
+
+== How to test
+
+.websocket uri
+----
+ws://localhost:8000/web/socket/1
+----
+
+.using http send message
+----
+http://localhost:8000/web/socket/send/1?message=hello%20word.
+----
